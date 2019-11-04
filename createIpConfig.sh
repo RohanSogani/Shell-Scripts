@@ -16,17 +16,30 @@ fi
 #Command to get just the names of all the servers setup in docker
 OUTPUT="$(docker ps --format '{{.Names}}')"
 #echo "${OUTPUT}"
-
+IPC=""
 echo "Server sequence --> IP"
 for server in ${OUTPUT};
 do
   #Get just the IP Address of all the servers
-  IP="$(docker inspect $server | grep -Po '"IPAddress": *\K"([0-9]{1,3}[\.]){3}[0-9]{1,3}"')"
-  #Remove quotes
-  IP="${IP%\"}"
-  IP="${IP#\"}"
-  echo "$server --> ${IP}"
-  #Append in ifconfig,txt
-  echo "${IP}" >> $file
+  #echo "$server"
+  if [ $server = "c1" ]
+  then
+    echo "Client found skip for now"
+    IPC="$(docker inspect $server | grep -Po '"IPAddress": *\K"([0-9]{1,3}[\.]){3}[0-9]{1,3}"')"
+    IPC="${IPC%\"}"
+    IPC="${IPC#\"}"
+    echo "$server --> ${IPC}"
+  else
+    IP="$(docker inspect $server | grep -Po '"IPAddress": *\K"([0-9]{1,3}[\.]){3}[0-9]{1,3}"')"
+    #Remove quotes
+    IP="${IP%\"}"
+    IP="${IP#\"}"
+    echo "$server --> ${IP}"
+    #Append in ifconfig,txt
+    echo "${IP}" >> $file
+  fi
 done
+echo "Put Client IP at the bottom"
+echo $IPC >> $file
 echo "$file Created!"
+
