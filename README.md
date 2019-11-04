@@ -12,6 +12,6 @@ This repo contains some of the shell scripts that automate a few things
    172.20.0.2\
    172.20.0.5\
    172.20.0.3\
-   172.20.0.4\
+   172.20.0.4
 
 
