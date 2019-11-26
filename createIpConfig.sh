@@ -17,15 +17,14 @@ if [ -f $file ]; then
     printf "${GREEN}Deleted${NC}\n"
 fi
 
-#Command to get just the names of all the servers setup in docker
+#Command to get just the names of all the docker containers
 OUTPUT="$(docker ps --format '{{.Names}}' | grep -P "c[\d]+|s[\d]+" | sort)"
-#echo "${OUTPUT}"
+
 IPC=""
 echo "Server sequence --> IP"
 CLIENTS=""
 for server in ${OUTPUT}; do
-    #Get just the IP Address of all the servers
-    #echo "$server"
+    #Get just the IP Address of all the containers
     if ! [ "$server" = "${server#c}" ]; then
         IPC="$(docker inspect $server | grep -Po '"IPAddress": *\K"([0-9]{1,3}[\.]){3}[0-9]{1,3}"')"
         IPC="${IPC%\"}"
