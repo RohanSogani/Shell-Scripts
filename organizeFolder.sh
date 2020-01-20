@@ -7,9 +7,9 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 #Check if argument specified
-if [ $# -eq 0 ] 
+if [ $# != 1 ] 
 then
-    printf "${RED}Error: Please provide one directory${NC}\n"
+    printf "${RED}Error: Please provide only one directory${NC}\n"
     exit
 fi
 echo "Logged in as $USER"
