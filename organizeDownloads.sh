@@ -45,7 +45,7 @@ do
     #-p to create only if not available
 	mkdir -p $baseDir/$i
     #2>/dev/null to make mv silent in case an above file type not found
-    mv -f ${!i} $baseDir/$i/ 2>/dev/null
+    mv -vf ${!i} $baseDir/$i/ 2>/dev/null
 done
 printf "${GREEN}Done!${NC}\n"
 
