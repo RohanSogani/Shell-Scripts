@@ -38,6 +38,7 @@ CODEs="$baseDir/*.c $baseDir/*.cpp $baseDir/*.sh $baseDir/*.py"
 #End of Directories
 
 #Organize --> Algo 1
+echo "Organizing $1 in named sub-folders"
 declare -a dirArrays=("PDFs" "DMGs" "PPTs" "DOCs" "IMGs" "XLXs" "VIDs" "ARCHIVESs" "CODEs")
 for i in "${dirArrays[@]}"
 do
@@ -46,6 +47,6 @@ do
     #2>/dev/null to make mv silent in case an above file type not found
     mv -f ${!i} $baseDir/$i/ 2>/dev/null
 done
-
+printf "${GREEN}Done!${NC}\n"
 
 
