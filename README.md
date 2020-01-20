@@ -14,4 +14,11 @@ This repo contains some of the shell scripts that automate a few things
    172.20.0.3\
    172.20.0.4
 
+2. organizeDownloads.sh - organizes a folder containing random files in folders of same type files\
+   To execute the script
+   ```console
+   foo@bar:~$ chmod +x organizeDownloads.sh
+   foo@bar:~$ ./organizeDownloads.sh <Folder to organize in your userspace>
+   ```
+
 

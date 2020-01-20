@@ -11,15 +11,15 @@ then
     printf "${RED}Error: Please provide one directory${NC}\n"
     exit
 fi
-echo "Arg 1: $1"
 echo "Logged in as $USER"
-pathToClean="/Users/${USER}/${1}"
-echo "Directory to organize is $pathToClean"
-
+baseDir="/Users/${USER}/${1}"
+echo "Directory to organize is $baseDir"
+currentDir=$(pwd)
+echo "Current working directory $currentDir"
 #Check if valid directory
-if [ -d $pathToClean ] 
+if [ -d $baseDir ] 
 then
-    printf "${GREEN}Directory $pathToClean exists.${NC}\n" 
+    printf "${GREEN}Directory $baseDir exists.${NC}\n" 
 else
-    printf "${RED}Error: Directory $pathToClean does not exists.${NC}\n"
+    printf "${RED}Error: Directory $baseDir does not exists.${NC}\n"
 fi
