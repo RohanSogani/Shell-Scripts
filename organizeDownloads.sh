@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/usr/bin/env
 
 # Colors used for logs
 RED='\033[0;31m'
@@ -23,3 +24,18 @@ then
 else
     printf "${RED}Error: Directory $baseDir does not exists.${NC}\n"
 fi
+
+#Hardcode file types in variables as Directory names 
+PDFs="$baseDir/*.pdf" 
+DMGs="$baseDir/*.dmg" 
+PPTs="$baseDir/*.pptx $baseDir/*.ppt $baseDir/*.pps" 
+DOCs="$baseDir/*.doc $baseDir/*.docx $baseDir/*.txt $baseDir/*.tex" 
+IMGs="$baseDir/*.png $baseDir/*.jpeg" 
+XLXs="$baseDir/*.csv $baseDir/*.xlr $baseDir/*.xls $baseDir/*.xlsx" 
+VIDs="$baseDir/*.wmv $baseDir/*.mp4 $baseDir/*.mov $baseDir/*.mpeg" 
+ARCHIVESs="$baseDir/*.tar $baseDir/*.pkg $baseDir/*.tar.gz $baseDir/*.zip" 
+CODEs="$baseDir/*.c $baseDir/*.cpp $baseDir/*.sh $baseDir/*.py"
+#End of Directories
+
+
+
