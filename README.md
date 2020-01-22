@@ -20,5 +20,6 @@ This repo contains some of the shell scripts that automate a few things
    foo@bar:~$ chmod +x organizeDownloads.sh
    foo@bar:~$ ./organizeDownloads.sh <Folder to organize in your userspace>
    ```
+   Creates 9 Folders named "PDFs" "DMGs" "PPTs" "DOCs" "IMGs" "XLXs" "VIDs" "ARCHIVESs" "CODEs" inside the input folder and organizes the files accordingly.
 
 
